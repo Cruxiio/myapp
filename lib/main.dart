@@ -65,7 +65,10 @@ class _RecipeListPageState extends State<RecipeListPage> {
             padding: EdgeInsets.all(screenSize.width * 0.02),
             child: Card(
               child: ListTile(
-                title: Text(recipes[index]['name']!),
+                title: Text(
+                  recipes[index]['name']!,
+                  style: TextStyle(fontSize: screenSize.width * 0.05),
+                ),
                 trailing: IconButton(
                   icon: Icon(Icons.arrow_forward),
                   onPressed: () {
@@ -83,7 +86,7 @@ class _RecipeListPageState extends State<RecipeListPage> {
         },
       ),
       floatingActionButton: IconButton(
-        icon: Icon(Icons.add),
+            icon: Icon(Icons.add),
             onPressed: () async {
               final newRecipe = await Navigator.push(
                 context,
@@ -96,7 +99,7 @@ class _RecipeListPageState extends State<RecipeListPage> {
                 _addNewRecipe(newRecipe);
               }
             },
-      ),
+          ),
     );
   }
 }
@@ -248,6 +251,7 @@ class _AddRecipePageState extends State<AddRecipePage> {
                     _name = value!;
                   },
                 ),
+                SizedBox(height: screenSize.height * 0.02),
                 TextFormField(
                   decoration: InputDecoration(labelText: 'Description'),
                   validator: (value) {
@@ -260,6 +264,7 @@ class _AddRecipePageState extends State<AddRecipePage> {
                     _description = value!;
                   },
                 ),
+                SizedBox(height: screenSize.height * 0.02),
                 TextFormField(
                   decoration: InputDecoration(labelText: 'Ingredients'),
                   validator: (value) {
@@ -272,6 +277,7 @@ class _AddRecipePageState extends State<AddRecipePage> {
                     _ingredients = value!;
                   },
                 ),
+                SizedBox(height: screenSize.height * 0.02),
                 TextFormField(
                   decoration: InputDecoration(labelText: 'Steps'),
                   validator: (value) {
